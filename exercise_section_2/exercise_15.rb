@@ -16,8 +16,14 @@ a_string = a.select{|str| str.is_a? String}
 a_integer = a.select{|num| num.is_a? Numeric}
 array_length = a.size
 puts "Given array is #{a}"
-puts "Integer array is #{a_integer}"
+puts "15.1 - Integer array is #{a_integer}"
 puts "String array is #{a_string}"
+puts "Indexes of sting elements are"
+a.each_with_index{|elem,index| 
+if elem.is_a? String
+    puts index
+end
+}
 puts "Total elements in the aray is #{array_length}"
 if(a.include?('leopard'))
     puts "'leopard' is present in the array"
@@ -36,7 +42,8 @@ count_vowels(str)
 
 puts "Array with integer sum #{a.push(a_integer.inject(0, :+))}"
 a.delete_at(array_length)
-puts "Last 3 elements are #{a.slice(array_length-3..array_length)}"
+# puts "Last 3 elements are #{a.slice(array_length-3..array_length)}"
+puts "Last 3 elements are #{a.last(3)}"
 
 puts "String elements with vowels replaced :"
 
