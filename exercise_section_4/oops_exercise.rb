@@ -5,17 +5,17 @@ def initialize(name,author,year,price)
     @author = author
     @year = year
     @stock = 0
-    @price = price
+    @@price = @price = price
 end
 def stock_inc(count)
-@stock+=count
+@@stock = @stock+=count
 end
 def stock_dec(count)
-@stock-=count
+@@stock = @stock-=count
 end
-# def self.total_price
-#     puts "Total price of book in stock #{price*stock}"
-# end
+def self.total_price
+    puts "Total price of book in stock #{@@stock*@@price}"
+end
 end
 def print_data(data)
     puts "Book Name : #{data.name} Author: #{data.author} Year of publishing : #{data.year} Stock Remaining : #{data.stock}"
@@ -27,3 +27,4 @@ print_data(harry)
 harry.stock_dec(3)
 harry.year = 1998
 print_data(harry)
+BookStore.total_price
